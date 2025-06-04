@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-# Basic Django Model
+# Basic Django Model Example
 
 class Item(models.Model):
     id = models.BigAutoField(primary_key=True)
