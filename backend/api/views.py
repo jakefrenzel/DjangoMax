@@ -1,15 +1,43 @@
 # Import class based methods
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
+# Import other necessary modules
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Import Models & Serializers here:
-from .models import Item
-from .serializers import ItemSerializer
+from .models import Item, Box, Product
+from .serializers import ItemSerializer, BoxSerializer, ProductSerializer
 
 
 
 # Create your views here.
 
-class Item(ListCreateAPIView):
+# List all products or create a new one
+class ProductListCreateView(ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+# Retrieve, update, or delete a specific product
+class ProductDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class BoxView(APIView):
+    def post(self, request):
+        serializer = BoxSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request):
+        boxes = Box.objects.all()
+        serializer = BoxSerializer(boxes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class ItemListCreateView(ListCreateAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
