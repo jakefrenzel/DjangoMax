@@ -47,5 +47,5 @@ class ItemListCreateView(ListCreateAPIView):
 # CourtsPro Official Views
 
 class SettingView(RetrieveUpdateDestroyAPIView):
-    queryseyset = Setting.objects.all()
+    queryset = Setting.objects.all()
     serializer_class = SettingSerializer
