@@ -7,12 +7,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 # Import Models & Serializers here:
-from .models import Item, Box, Product
-from .serializers import ItemSerializer, BoxSerializer, ProductSerializer
+from .models import Item, Box, Product, Setting
+from .serializers import ItemSerializer, BoxSerializer, ProductSerializer, SettingSerializer
 
 
 
 # Create your views here.
+
+# Example Views
 
 # List all products or create a new one
 class ProductListCreateView(ListCreateAPIView):
@@ -42,3 +44,8 @@ class ItemListCreateView(ListCreateAPIView):
     serializer_class = ItemSerializer
 
 
+# CourtsPro Official Views
+
+class SettingView(RetrieveUpdateDestroyAPIView):
+    queryseyset = Setting.objects.all()
+    serializer_class = SettingSerializer

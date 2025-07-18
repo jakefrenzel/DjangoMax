@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-# Basic Django Model Example
+# Basic Example Models
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -29,5 +29,17 @@ class Item(models.Model):
     def __str__(self):
         return self.name
     
-class Test(models.Model):
-    name = models.CharField(max_length=100)
+# CourtsPro Official Models
+
+class Setting(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    #facility_id = models.ForeignKey('Facility', on_delete=models.CASCADE)
+    facility_open = models.IntegerField()
+    facility_close = models.IntegerField()
+    facility_courts = models.IntegerField()
+
+    def __str__(self):
+        return f"Setting: {self.id} for Facility: {self.facility_id}"
+    
+    class Meta:
+        db_table="settings"
