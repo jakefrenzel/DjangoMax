@@ -11,6 +11,6 @@ urlpatterns = [
     path('items/', ItemListCreateView.as_view(), name='item-list-create'),
 
     #CourtsPro Official URLs
-    path('settings/', SettingView.as_view(), name='item-list-create'),
+    path('settings/<int:pk>/', SettingView.as_view(), name='item-list-create'),
 
 ]
