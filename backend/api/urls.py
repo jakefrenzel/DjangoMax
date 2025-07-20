@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 # Import classes here!
-from .views import ItemListCreateView, BoxView, ProductListCreateView, SettingView
+from .views import ItemListCreateView, BoxView, ProductListCreateView, SettingView, FacilityView
 
 urlpatterns = [
     #example urls
@@ -12,5 +12,5 @@ urlpatterns = [
 
     #CourtsPro Official URLs
     path('settings/<int:pk>/', SettingView.as_view(), name='item-list-create'),
-
+    path('facility/', FacilityView.as_view(), name='facility-list-create'),
 ]
