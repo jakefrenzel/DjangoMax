@@ -122,7 +122,7 @@ class Court(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Court: {self.name} for Facility: {self.facility.id}"
+        return f"Court: {self.name} for Facility: {self.facility_id}"
 
     class Meta:
         db_table = 'courts'
