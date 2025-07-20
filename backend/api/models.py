@@ -39,7 +39,7 @@ class Setting(models.Model):
     facility_courts = models.IntegerField()
 
     def __str__(self):
-        return f"Setting: {self.id} for Facility: self.facility_id"
+        return f"Setting: {self.id} for Facility: {self.facility_id}"
     
     class Meta:
         db_table="settings"
