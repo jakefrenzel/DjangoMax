@@ -102,6 +102,18 @@ class MembershipTier(models.Model):
         db_table = 'membership_tiers'
 
 
+class Membership(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    facility_id = models.ForeignKey('Facility', on_delete=models.CASCADE)
+    membership_id = models.ForeignKey('MembershipTier', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Membership: {self.membership.title} for {self.user.username}"
+    
+    class Meta:
+        db_table = 'memberships'
+
 """
 # Membership model
 class Membership(models.Model):
