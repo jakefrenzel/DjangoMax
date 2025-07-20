@@ -71,5 +71,5 @@ class CourtView(ListCreateAPIView):
     serializer_class = CourtSerializer
 
 class BookingView(ListCreateAPIView):
-    queryset = Booking.objects.all
+    queryset = Booking.objects.all()
     serializer_class = BookingSerializer
