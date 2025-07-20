@@ -82,7 +82,7 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "User: " + self.username
+        return "User: " + self.firstname
 
     class Meta:
         db_table = 'users'
@@ -96,7 +96,7 @@ class MembershipTier(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Membership Tier: {self.title} for Facility: {self.facility.id}"
+        return f"Membership Tier: {self.title} for Facility: {self.facility_id}"
 
     class Meta:
         db_table = 'membership_tiers'
@@ -109,7 +109,7 @@ class Membership(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Membership: {self.membership.title} for {self.user.username}"
+        return f"Membership: {self.membership_id} for {self.user}"
     
     class Meta:
         db_table = 'memberships'
