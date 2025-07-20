@@ -47,7 +47,7 @@ class Setting(models.Model):
 
 class Facility(models.Model):
     id = models.BigAutoField(primary_key=True)
-    #franchisee_id = models.ForeignKey('Franchisee', on_delete=models.CASCADE, null=True)
+    franchisee_id = models.ForeignKey('Franchisee', on_delete=models.CASCADE, null=True)
     allow_external_membership = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
