@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Item, Box, Product, Setting
+from .models import Item, Box, Product, Setting, Facility
 
 
 # Register your example models here.
@@ -10,3 +10,4 @@ admin.site.register(Product)
 
 # Register official models
 admin.site.register(Setting)
+admin.site.register(Facility)
