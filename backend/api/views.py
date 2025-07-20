@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 # Import Models & Serializers here:
-from .models import Item, Box, Product, Setting, Facility, Franchisee, User, MembershipTier, Court
-from .serializers import ItemSerializer, BoxSerializer, ProductSerializer, SettingSerializer, FacilitySerializer, FranchiseeSerializer, UserSerializer, MembershipTierSerializer, CourtSerializer
+from .models import Item, Box, Product, Setting, Facility, Franchisee, User, MembershipTier, Court, Booking
+from .serializers import ItemSerializer, BoxSerializer, ProductSerializer, SettingSerializer, FacilitySerializer, FranchiseeSerializer, UserSerializer, MembershipTierSerializer, CourtSerializer, BookingSerializer
 
 
 
@@ -69,3 +69,7 @@ class MembershipTierView(ListCreateAPIView):
 class CourtView(ListCreateAPIView):
     queryset = Court.objects.all()
     serializer_class = CourtSerializer
+
+class BookingView(ListCreateAPIView):
+    queryset = Booking.objects.all
+    serializer_class = BookingSerializer

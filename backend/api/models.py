@@ -128,9 +128,6 @@ class Court(models.Model):
         db_table = 'courts'
 
 
-"""
-
-# Booking model
 class Booking(models.Model):
     id = models.BigAutoField(primary_key=True)
     facility_id = models.ForeignKey('Facility', on_delete=models.CASCADE)
@@ -144,5 +141,3 @@ class Booking(models.Model):
 
     class Meta:
         db_table = 'bookings'
-
-"""

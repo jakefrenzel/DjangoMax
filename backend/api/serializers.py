@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 # Import Models here:
-from .models import Item, Box, Product, Setting, Facility, Franchisee, User, MembershipTier, Court
+from .models import Item, Box, Product, Setting, Facility, Franchisee, User, MembershipTier, Court, Booking
 
 
 # Example Serializers
@@ -52,4 +52,9 @@ class MembershipTierSerializer(serializers.ModelSerializer):
 class CourtSerializer(serializers.ModelSerializer):
     class Meta:
         model = Court 
+        fields = '__all__'
+
+class BookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
         fields = '__all__'
