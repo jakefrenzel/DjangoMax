@@ -33,7 +33,7 @@ class Item(models.Model):
 
 class Setting(models.Model):
     id = models.BigAutoField(primary_key=True)
-    #facility_id = models.ForeignKey('Facility', on_delete=models.CASCADE)
+    facility_id = models.ForeignKey('Facility', on_delete=models.CASCADE)
     facility_open = models.IntegerField()
     facility_close = models.IntegerField()
     facility_courts = models.IntegerField()
@@ -43,3 +43,16 @@ class Setting(models.Model):
     
     class Meta:
         db_table="settings"
+
+
+class Facility(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    #franchisee_id = models.ForeignKey('Franchisee', on_delete=models.CASCADE, null=True)
+    allow_external_membership = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Facility: {self.id}"
+
+    class Meta:
+        db_table = 'facilities'
