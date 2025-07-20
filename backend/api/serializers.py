@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 # Import Models here:
-from .models import Item, Box, Product, Setting, Facility
+from .models import Item, Box, Product, Setting, Facility, Franchisee
 
 
 # Example Serializers
@@ -32,4 +32,9 @@ class SettingSerializer(serializers.ModelSerializer):
 class FacilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Facility
+        fields = '__all__'
+
+class FranchiseeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Franchisee
         fields = '__all__'

@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 # Import Models & Serializers here:
-from .models import Item, Box, Product, Setting, Facility
-from .serializers import ItemSerializer, BoxSerializer, ProductSerializer, SettingSerializer, FacilitySerializer
+from .models import Item, Box, Product, Setting, Facility, Franchisee
+from .serializers import ItemSerializer, BoxSerializer, ProductSerializer, SettingSerializer, FacilitySerializer, FranchiseeSerializer
 
 
 
@@ -53,3 +53,7 @@ class SettingView(RetrieveUpdateDestroyAPIView):
 class FacilityView(ListCreateAPIView):
     queryset = Facility.objects.all()
     serializer_class = FacilitySerializer
+
+class FranchiseeView(ListCreateAPIView):
+    queryset = Franchisee.objects.all()
+    serializer_class = FranchiseeSerializer
