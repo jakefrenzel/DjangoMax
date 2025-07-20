@@ -56,3 +56,15 @@ class Facility(models.Model):
 
     class Meta:
         db_table = 'facilities'
+
+
+class Franchisee(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    owner = models.BigIntegerField() # not sure where we were going with this
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Franchisee: {self.id}"
+    
+    class Meta:
+        db_table = 'franchisees'
